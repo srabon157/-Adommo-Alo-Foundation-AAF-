@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 70" width="420" height="70" fill="none">
+  <!-- Brand Emblem Group -->
+  <g transform="translate(6, 5)">
+    <!-- Glow / Aura -->
+    <circle cx="30" cy="30" r="28" fill="#10B981" fill-opacity="0.12"/>
+    <circle cx="30" cy="30" r="21" fill="#F59E0B" fill-opacity="0.15"/>
+    
+    <!-- Outer Caring Hands / Leaf Shape in Deep & Emerald Green -->
+    <path d="M13 39 C15 45, 23 51, 30 51 C37 51, 45 45, 47 39 C47 39, 39 44, 30 44 C21 44, 13 39, 13 39 Z" fill="#064E3B"/>
+    <path d="M11 34 C13 42, 22 49, 30 49 C38 49, 47 42, 49 34 C42 40, 37 42, 30 42 C23 42, 18 40, 11 34 Z" fill="#059669"/>
+    
+    <!-- Left Hand / Wing Leaf -->
+    <path d="M14 30 C16 21, 23 14, 28 17 C26 23, 23 29, 18 35 C16 33, 14 31, 14 30 Z" fill="#10B981"/>
+    
+    <!-- Right Hand / Wing Leaf -->
+    <path d="M46 30 C44 21, 37 14, 32 17 C34 23, 37 29, 42 35 C44 33, 46 31, 46 30 Z" fill="#059669"/>
+    
+    <!-- The Flame / Light Rays of "আলো" in Warm Gold -->
+    <path d="M30 9 C32 14, 35 18, 35 22 C35 26, 32 28, 30 28 C28 28, 25 26, 25 22 C25 18, 28 14, 30 9 Z" fill="#F59E0B"/>
+    <path d="M30 14 C31.5 17, 33 20, 33 22 C33 24.5, 31.5 26, 30 26 C28.5 26, 27 24.5, 27 22 C27 20, 28.5 17, 30 14 Z" fill="#FDE68A"/>
+    
+    <!-- Small Radiant Sparkle -->
+    <circle cx="30" cy="6" r="2" fill="#F59E0B"/>
+  </g>
+
+  <!-- Typography: অদম্য | Adommo Alo Foundation -->
+  <g transform="translate(76, 12)">
+    <!-- Main Bangla Brand Name -->
+    <text x="0" y="25" font-family="'Hind Siliguri', 'Noto Sans Bengali', 'Segoe UI', sans-serif" font-weight="800" font-size="25" fill="#064E3B" letter-spacing="0.5">অদম্য</text>
+    
+    <!-- Divider -->
+    <rect x="76" y="9" width="2.5" height="19" rx="1" fill="#F59E0B"/>
+    
+    <!-- English Name & Short Title -->
+    <text x="88" y="24" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="700" font-size="15.5" fill="#111827" letter-spacing="0.2">Adommo Alo Foundation</text>
+    
+    <!-- Subtitle / Tagline -->
+    <text x="0" y="43" font-family="'Hind Siliguri', 'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#059669" letter-spacing="0.2">মানবতার পাশে, সামাজিক উন্নয়নে নিবেদিত • AAF</text>
+  </g>
+</svg>
