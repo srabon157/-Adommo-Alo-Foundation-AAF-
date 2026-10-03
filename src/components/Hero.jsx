@@ -26,10 +26,7 @@ export default function Hero({ t, onOpenDonate }) {
         <div className="hero-grid">
           {/* Left Text Content */}
           <div className="hero-content">
-            <div className="hero-badge">
-              <Sparkles size={16} className="text-emerald" />
-              <span>{t.hero.badge}</span>
-            </div>
+
 
             <h1 className="hero-headline">
               {t.hero.headline}
@@ -61,10 +58,6 @@ export default function Hero({ t, onOpenDonate }) {
 
             {/* Micro badges below CTA */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '32px', flexWrap: 'wrap' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-                <ShieldCheck size={18} color="var(--primary-emerald)" />
-                <span>স্বচ্ছ ও জবাবদিহিতামূলক কার্যক্রম</span>
-              </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
                 <Users size={18} color="var(--accent-gold-dark)" />
                 <span>তরুণদের সরাসরি মাঠপর্যায়ে অংশগ্রহণ</span>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, AlertCircle, Linkedin, Facebook, Twitter, Quote } from 'lucide-react';
+import { Users, Award, Linkedin, Facebook, Mail, Sparkles, ShieldCheck } from 'lucide-react';
 
 export default function Team({ t }) {
   const [hoveredId, setHoveredId] = useState(null);
@@ -15,12 +15,15 @@ export default function Team({ t }) {
           </div>
           <h2 className="section-title">{t.team.sectionTitle}</h2>
           <p className="section-subtitle">{t.team.subtitle}</p>
-        </div>
 
-        {/* Disclaimer Badge */}
-        <div className="team-disclaimer">
-          <AlertCircle size={18} />
-          <span>{t.team.disclaimer}</span>
+          {/* Prestigious Central Executive Leadership Banner */}
+          {t.team.badge && (
+            <div className="team-leadership-banner">
+              <div className="team-banner-glow"></div>
+              <Award size={18} className="team-banner-icon" />
+              <span className="team-banner-text">{t.team.badge}</span>
+            </div>
+          )}
         </div>
 
         {/* Team Grid */}
@@ -32,86 +35,134 @@ export default function Team({ t }) {
               onMouseEnter={() => setHoveredId(member.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              {/* Large Photo Area */}
+              {/* Luxury Top Accent Line */}
+              <div className="team-card-accent"></div>
+
+              {/* Photo Area */}
               <div className="team-photo-area">
                 <img
                   src={member.image}
                   alt={member.name}
                   className="team-photo"
+                  loading="lazy"
                 />
-                {/* Gradient Overlay on Hover */}
+
+                {/* Floating Founder Badge */}
+                <div className="team-founder-badge">
+                  <Sparkles size={12} className="team-founder-sparkle" />
+                  <span>{t.team.founderTag || 'Founder'}</span>
+                </div>
+
+                {/* Hover Gradient Overlay with Quick Socials */}
                 <div className="team-photo-overlay">
                   <div className="team-overlay-socials">
                     <a
-                      href="#team"
-                      className="team-social-icon"
+                      href={member.social?.facebook || '#team'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="team-social-icon facebook"
                       title="Facebook"
-                      onClick={(e) => e.preventDefault()}
                       aria-label="Facebook"
+                      onClick={(e) => {
+                        if (!member.social?.facebook || member.social.facebook === '#team') {
+                          e.preventDefault();
+                        }
+                      }}
                     >
                       <Facebook size={18} />
                     </a>
                     <a
-                      href="#team"
-                      className="team-social-icon"
+                      href={member.social?.linkedin || '#team'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="team-social-icon linkedin"
                       title="LinkedIn"
-                      onClick={(e) => e.preventDefault()}
                       aria-label="LinkedIn"
+                      onClick={(e) => {
+                        if (!member.social?.linkedin || member.social.linkedin === '#team') {
+                          e.preventDefault();
+                        }
+                      }}
                     >
                       <Linkedin size={18} />
                     </a>
                     <a
-                      href="#team"
-                      className="team-social-icon"
-                      title="Twitter"
-                      onClick={(e) => e.preventDefault()}
-                      aria-label="Twitter"
+                      href={`mailto:${member.social?.email || 'contact@adommoalo.org'}`}
+                      className="team-social-icon email"
+                      title="Email"
+                      aria-label="Email"
                     >
-                      <Twitter size={18} />
+                      <Mail size={18} />
                     </a>
                   </div>
-                </div>
-
-                {/* Role Badge */}
-                <div className="team-role-badge">
-                  {member.role}
                 </div>
               </div>
 
               {/* Card Body */}
               <div className="team-card-body">
-                <h3 className="team-name">{member.name}</h3>
-
-                <div className="team-bio-wrap">
-                  <Quote size={18} className="team-quote-icon" />
-                  <p className="team-bio">{member.bio}</p>
+                {/* Member Name */}
+                <div className="team-name-group">
+                  <h3 className="team-name">{member.name}</h3>
+                  {member.nameEn && member.nameEn !== member.name && (
+                    <span className="team-name-en">{member.nameEn}</span>
+                  )}
                 </div>
 
-                {/* Bottom Social Row (always visible on mobile) */}
+                {/* Role / Designation Capsule */}
+                <div className="team-role-capsule">
+                  <ShieldCheck size={14} className="team-role-icon" />
+                  <span className="team-role-text">{member.role}</span>
+                </div>
+
+                {/* Focus Areas / Pillar Chips */}
+                <div className="team-tags-container">
+                  {(member.tags || (member.bio ? member.bio.split('•').map(s => s.trim()) : [])).map((tag, idx) => (
+                    <span key={idx} className="team-tag-pill">
+                      <span className="team-tag-bullet">•</span>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Bottom Social Row for mobile and quick action */}
                 <div className="team-social-row">
                   <a
-                    href="#team"
-                    className="team-social-pill"
+                    href={member.social?.facebook || '#team'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="team-social-pill facebook"
                     title="Facebook"
-                    onClick={(e) => e.preventDefault()}
+                    aria-label="Facebook"
+                    onClick={(e) => {
+                      if (!member.social?.facebook || member.social.facebook === '#team') {
+                        e.preventDefault();
+                      }
+                    }}
                   >
-                    <Facebook size={14} />
+                    <Facebook size={15} />
                   </a>
                   <a
-                    href="#team"
-                    className="team-social-pill"
+                    href={member.social?.linkedin || '#team'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="team-social-pill linkedin"
                     title="LinkedIn"
-                    onClick={(e) => e.preventDefault()}
+                    aria-label="LinkedIn"
+                    onClick={(e) => {
+                      if (!member.social?.linkedin || member.social.linkedin === '#team') {
+                        e.preventDefault();
+                      }
+                    }}
                   >
-                    <Linkedin size={14} />
+                    <Linkedin size={15} />
                   </a>
                   <a
-                    href="#team"
-                    className="team-social-pill"
-                    title="Twitter"
-                    onClick={(e) => e.preventDefault()}
+                    href={`mailto:${member.social?.email || 'contact@adommoalo.org'}`}
+                    className="team-social-pill email"
+                    title="Email"
+                    aria-label="Email"
                   >
-                    <Twitter size={14} />
+                    <Mail size={15} />
                   </a>
                 </div>
               </div>

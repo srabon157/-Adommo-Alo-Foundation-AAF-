@@ -435,36 +435,84 @@ export const siteContent = {
     },
     team: {
       sectionTitle: "আমাদের টিম",
-      subtitle: "যাদের নিরলস শ্রম ও ভালোবাসায় এগিয়ে চলেছে অদম্য আলো",
-      disclaimer: "নোট: নিচে উল্লেখিত নাম ও পদবি ডেমো/প্লেসহোল্ডার হিসেবে প্রদর্শিত। ফাউন্ডেশনের প্রশাসনিক অনুমোদন ও প্রকৃত দায়িত্বশীলদের তথ্য সাপেক্ষে এটি সরাসরি প্রতিস্থাপনযোগ্য।",
+      subtitle: "যাদের দূরদর্শী নেতৃত্ব ও ভালোবাসায় এগিয়ে চলেছে অদম্য আলো ফাউন্ডেশন",
+      badge: "প্রতিষ্ঠাতা পর্ষদ ও কেন্দ্রীয় নির্বাহী নেতৃত্ব",
+      founderTag: "প্রতিষ্ঠাতা",
       members: [
         {
           id: 1,
-          name: "[সভাপতি / চেয়ারম্যানের নাম]",
-          role: "চেয়ারম্যান / সভাপতি [প্লেসহোল্ডার]",
-          bio: "সামাজিক উন্নয়ন ও মানবিক সেবায় নিবেদিতপ্রাণ। সার্বিক দিকনির্দেশনা ও নীতিনির্ধারণে দায়িত্বশীল।",
-          image: "/images/team-placeholder-1.svg",
+          name: "বিভা আক্তার বনি",
+          nameEn: "Biva Akhter Boni",
+          role: "Founding Chairperson & Executive Director",
+          roleBn: "প্রতিষ্ঠাতা চেয়ারপারসন ও নির্বাহী পরিচালক",
+          bio: "Founder • Organizational Leadership • Executive Direction",
+          tags: ["Founder", "Organizational Leadership", "Executive Direction"],
+          image: "/images/biva-akhter-boni.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "boni@adommoalo.org"
+          }
         },
         {
           id: 2,
-          name: "[সাধারণ সম্পাদক / পরিচালকের নাম]",
-          role: "নির্বাহী পরিচালক / সাধারণ সম্পাদক [প্লেসহোল্ডার]",
-          bio: "মাঠপর্যায়ের প্রকল্প বাস্তবায়ন, স্বচ্ছতা বজায় রাখা ও সাংগঠনিক সমন্বয়ে অগ্রণী ভূমিকা পালনকারী।",
-          image: "/images/team-placeholder-2.svg",
+          name: "আবু আল সালমান",
+          nameEn: "Abu al Salman",
+          role: "Founding President & Executive Director",
+          roleBn: "প্রতিষ্ঠাতা সভাপতি ও নির্বাহী পরিচালক",
+          bio: "Founder • Programs • Operations • Organizational Coordination",
+          tags: ["Founder", "Programs", "Operations", "Organizational Coordination"],
+          image: "/images/abu-al-salman.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "salman@adommoalo.org"
+          }
         },
         {
           id: 3,
-          name: "[প্রোগ্রাম কো-অর্ডিনেটরের নাম]",
-          role: "প্রোগ্রাম ও অপারেশনস প্রধান [প্লেসহোল্ডার]",
-          bio: "শিক্ষা ও জরুরি ত্রাণ সহায়তা প্রকল্পসমূহের পরিকল্পনা এবং মাঠ বাস্তবায়ন তদারককারী।",
-          image: "/images/team-placeholder-3.svg",
+          name: "রাফাত রহমান জয়",
+          nameEn: "Rafath Rahman Joy",
+          role: "Founding Vice President & Executive Treasurer",
+          roleBn: "প্রতিষ্ঠাতা সহ-সভাপতি ও নির্বাহী কোষাধ্যক্ষ",
+          bio: "Founder • Finance • Fundraising • Financial Oversight",
+          tags: ["Founder", "Finance", "Fundraising", "Financial Oversight"],
+          image: "/images/rafath-rahman-joy.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "joy@adommoalo.org"
+          }
         },
         {
           id: 4,
-          name: "Mohaimin Hossain Srabon",
+          name: "অর্ণীক দাস",
+          nameEn: "Arnik Das",
+          role: "Founding Executive Management Officer",
+          roleBn: "প্রতিষ্ঠাতা নির্বাহী ব্যবস্থাপনা কর্মকর্তা",
+          bio: "Founder • Administration • Internal Management • Team Coordination",
+          tags: ["Founder", "Administration", "Internal Management", "Team Coordination"],
+          image: "/images/arnik-das.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "arnik@adommoalo.org"
+          }
+        },
+        {
+          id: 5,
+          name: "মোহাইমিন হোসেন শ্রাবণ",
+          nameEn: "Mohaimin Hossain Srabon",
           role: "Founding Manager & Social Media Executive",
+          roleBn: "প্রতিষ্ঠাতা ব্যবস্থাপক ও সোশ্যাল মিডিয়া নির্বাহী",
           bio: "Founder • Management • Social Media • Digital Communications",
+          tags: ["Founder", "Management", "Social Media", "Digital Communications"],
           image: "/images/srabon.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "srabon@adommoalo.org"
+          }
         },
       ],
     },
@@ -972,37 +1020,75 @@ export const siteContent = {
       ],
     },
     team: {
-      sectionTitle: "Our Team",
-      subtitle: "The dedicated individuals guiding Adommo Alo Foundation forward",
-      disclaimer: "Note: Names and positions below are presented as demo placeholders. They are designed to be replaced with verified institutional personnel details upon publication.",
+      sectionTitle: "Our Leadership Team",
+      subtitle: "The visionary founders and dedicated executives guiding Adommo Alo Foundation forward",
+      badge: "Founding Board of Directors & Central Executive Leadership",
+      founderTag: "Founder",
       members: [
         {
           id: 1,
-          name: "[Chairman / President Name]",
-          role: "President / Chairman [Placeholder]",
-          bio: "Dedicated to social welfare leadership and strategic community development.",
-          image: "/images/team-placeholder-1.svg",
+          name: "Biva Akhter Boni",
+          role: "Founding Chairperson & Executive Director",
+          bio: "Founder • Organizational Leadership • Executive Direction",
+          tags: ["Founder", "Organizational Leadership", "Executive Direction"],
+          image: "/images/biva-akhter-boni.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "boni@adommoalo.org"
+          }
         },
         {
           id: 2,
-          name: "[General Secretary / Executive Director]",
-          role: "Executive Director [Placeholder]",
-          bio: "Championing operational integrity, project implementation, and transparent governance.",
-          image: "/images/team-placeholder-2.svg",
+          name: "Abu al Salman",
+          role: "Founding President & Executive Director",
+          bio: "Founder • Programs • Operations • Organizational Coordination",
+          tags: ["Founder", "Programs", "Operations", "Organizational Coordination"],
+          image: "/images/abu-al-salman.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "salman@adommoalo.org"
+          }
         },
         {
           id: 3,
-          name: "[Program Coordinator Name]",
-          role: "Head of Programs [Placeholder]",
-          bio: "Leading education and emergency relief logistics and field deployments.",
-          image: "/images/team-placeholder-3.svg",
+          name: "Rafath Rahman Joy",
+          role: "Founding Vice President & Executive Treasurer",
+          bio: "Founder • Finance • Fundraising • Financial Oversight",
+          tags: ["Founder", "Finance", "Fundraising", "Financial Oversight"],
+          image: "/images/rafath-rahman-joy.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "joy@adommoalo.org"
+          }
         },
         {
           id: 4,
+          name: "Arnik Das",
+          role: "Founding Executive Management Officer",
+          bio: "Founder • Administration • Internal Management • Team Coordination",
+          tags: ["Founder", "Administration", "Internal Management", "Team Coordination"],
+          image: "/images/arnik-das.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "arnik@adommoalo.org"
+          }
+        },
+        {
+          id: 5,
           name: "Mohaimin Hossain Srabon",
           role: "Founding Manager & Social Media Executive",
           bio: "Founder • Management • Social Media • Digital Communications",
+          tags: ["Founder", "Management", "Social Media", "Digital Communications"],
           image: "/images/srabon.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "srabon@adommoalo.org"
+          }
         },
       ],
     },
