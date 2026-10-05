@@ -1,29 +1,31 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { siteContent } from './data/content';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Stats from './components/Stats';
-import About from './components/About';
-import Activities from './components/Activities';
-import Projects from './components/Projects';
-import WhyUs from './components/WhyUs';
-import Volunteer from './components/Volunteer';
-import Donation from './components/Donation';
-import Gallery from './components/Gallery';
-import News from './components/News';
-import Team from './components/Team';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Modals from './components/Modals';
 import Toast from './components/Toast';
 
-export default function App() {
-  const [lang, setLang] = useState('bn'); // Primary: Bengali, Secondary: English
+// Pages
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ActivitiesPage from './pages/ActivitiesPage';
+import ProjectsPage from './pages/ProjectsPage';
+import WhyUsPage from './pages/WhyUsPage';
+import VolunteerPage from './pages/VolunteerPage';
+import DonationPage from './pages/DonationPage';
+import GalleryPage from './pages/GalleryPage';
+import NewsPage from './pages/NewsPage';
+import TeamPage from './pages/TeamPage';
+import ContactPage from './pages/ContactPage';
+
+function AppInner() {
+  const [lang, setLang] = useState('bn');
   const t = siteContent[lang];
+  const location = useLocation();
 
   // Modals state
-  const [activeModal, setActiveModal] = useState(null); // 'activity' | 'project' | 'news' | 'donateConfirm'
+  const [activeModal, setActiveModal] = useState(null);
   const [modalData, setModalData] = useState(null);
 
   // Lightbox state
@@ -49,10 +51,7 @@ export default function App() {
   };
 
   const handleOpenDonate = () => {
-    const el = document.getElementById('donation');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.location.href = '/donation';
   };
 
   const handleSelectActivity = (activity) => {
@@ -88,9 +87,14 @@ export default function App() {
     setModalData(null);
   };
 
+  // Scroll to top on route change
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+
   return (
     <div className={`app-root ${lang === 'en' ? 'font-en' : ''}`}>
-      {/* 1. Header / Navbar */}
+      {/* Navbar */}
       <Navbar
         lang={lang}
         setLang={setLang}
@@ -98,89 +102,27 @@ export default function App() {
         onOpenDonate={handleOpenDonate}
       />
 
-      <main>
-        {/* 2. Hero Section */}
-        <Hero
-          t={t}
-          onOpenDonate={handleOpenDonate}
-        />
+      {/* Page Routes */}
+      <Routes>
+        <Route path="/" element={<HomePage t={t} onOpenDonate={handleOpenDonate} />} />
+        <Route path="/about" element={<AboutPage t={t} />} />
+        <Route path="/activities" element={<ActivitiesPage t={t} onSelectActivity={handleSelectActivity} />} />
+        <Route path="/projects" element={<ProjectsPage t={t} onSelectProject={handleSelectProject} />} />
+        <Route path="/why-us" element={<WhyUsPage t={t} />} />
+        <Route path="/volunteer" element={<VolunteerPage t={t} onShowToast={showToast} />} />
+        <Route path="/donation" element={<DonationPage t={t} onShowToast={showToast} onOpenConfirmModal={handleOpenConfirmModal} />} />
+        <Route path="/gallery" element={<GalleryPage t={t} onOpenLightbox={handleOpenLightbox} />} />
+        <Route path="/news" element={<NewsPage t={t} onSelectNews={handleSelectNews} />} />
+        <Route path="/team" element={<TeamPage t={t} />} />
+        <Route path="/contact" element={<ContactPage t={t} onShowToast={showToast} />} />
+        {/* Catch-all: redirect to home */}
+        <Route path="*" element={<HomePage t={t} onOpenDonate={handleOpenDonate} />} />
+      </Routes>
 
-        {/* 3. Impact / Statistics Section */}
-        <Stats
-          t={t}
-        />
+      {/* Footer */}
+      <Footer t={t} onShowToast={showToast} />
 
-        {/* 4. About Us Section */}
-        <About
-          t={t}
-        />
-
-        {/* 5. Our Activities Section */}
-        <Activities
-          t={t}
-          onSelectActivity={handleSelectActivity}
-        />
-
-        {/* 6. Featured Projects Section */}
-        <Projects
-          t={t}
-          onSelectProject={handleSelectProject}
-        />
-
-        {/* 7. Why Adommo Alo Foundation */}
-        <WhyUs
-          t={t}
-        />
-
-        {/* 8. Volunteer Registration Section */}
-        <Volunteer
-          t={t}
-          onShowToast={showToast}
-        />
-
-        {/* 9. Donation & Support Section */}
-        <Donation
-          t={t}
-          onShowToast={showToast}
-          onOpenConfirmModal={handleOpenConfirmModal}
-        />
-
-        {/* 10. Photo Gallery Section */}
-        <Gallery
-          t={t}
-          onOpenLightbox={handleOpenLightbox}
-        />
-
-        {/* 11. News & Updates Section */}
-        <News
-          t={t}
-          onSelectNews={handleSelectNews}
-        />
-
-        {/* 12. Team Section */}
-        <Team
-          t={t}
-        />
-
-        {/* 13. Testimonials Section */}
-        <Testimonials
-          t={t}
-        />
-
-        {/* 14. Contact Section */}
-        <Contact
-          t={t}
-          onShowToast={showToast}
-        />
-      </main>
-
-      {/* 15. Footer */}
-      <Footer
-        t={t}
-        onShowToast={showToast}
-      />
-
-      {/* Global Modals (Activity, Project, News, Lightbox, Donation) */}
+      {/* Global Modals */}
       <Modals
         activeModal={activeModal}
         modalData={modalData}
@@ -191,11 +133,16 @@ export default function App() {
         setLightboxState={setLightboxState}
       />
 
-      {/* Floating Toast System */}
-      <Toast
-        toasts={toasts}
-        onDismiss={dismissToast}
-      />
+      {/* Toast System */}
+      <Toast toasts={toasts} onDismiss={dismissToast} />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppInner />
+    </BrowserRouter>
   );
 }

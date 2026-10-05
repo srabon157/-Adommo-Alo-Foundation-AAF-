@@ -1,54 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { Heart, Menu, X, Globe, ChevronRight } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Heart, Menu, X, Globe } from 'lucide-react';
 
 export default function Navbar({ lang, setLang, t, onOpenDonate }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
-      const sections = ['home', 'about', 'activities', 'projects', 'why-us', 'volunteer', 'donation', 'gallery', 'news', 'team', 'contact'];
-      const scrollPos = window.scrollY + 120;
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { href: '#home', label: t.nav.home, id: 'home' },
-    { href: '#about', label: t.nav.about, id: 'about' },
-    { href: '#activities', label: t.nav.activities, id: 'activities' },
-    { href: '#projects', label: t.nav.projects, id: 'projects' },
-    { href: '#why-us', label: t.nav.whyUs, id: 'why-us' },
-    { href: '#volunteer', label: t.nav.volunteer, id: 'volunteer' },
-    { href: '#gallery', label: t.nav.gallery, id: 'gallery' },
-    { href: '#news', label: t.nav.news, id: 'news' },
-    { href: '#team', label: t.nav.team, id: 'team' },
-    { href: '#contact', label: t.nav.contact, id: 'contact' },
+    { to: '/', label: t.nav.home, id: 'home' },
+    { to: '/about', label: t.nav.about, id: 'about' },
+    { to: '/activities', label: t.nav.activities, id: 'activities' },
+    { to: '/projects', label: t.nav.projects, id: 'projects' },
+    { to: '/why-us', label: t.nav.whyUs, id: 'why-us' },
+    { to: '/volunteer', label: t.nav.volunteer, id: 'volunteer' },
+    { to: '/gallery', label: t.nav.gallery, id: 'gallery' },
+    { to: '/news', label: t.nav.news, id: 'news' },
+    { to: '/team', label: t.nav.team, id: 'team' },
+    { to: '/contact', label: t.nav.contact, id: 'contact' },
   ];
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    setMobileOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+  const isActive = (to) => {
+    if (to === '/') return location.pathname === '/';
+    return location.pathname.startsWith(to);
   };
 
   return (
@@ -57,22 +45,21 @@ export default function Navbar({ lang, setLang, t, onOpenDonate }) {
         <div className="container">
           <div className="navbar-inner">
             {/* Brand Logo */}
-            <a href="#home" className="brand-logo-link" onClick={(e) => handleNavClick(e, '#home')}>
+            <Link to="/" className="brand-logo-link">
               <img src="/images/aaf-logo.svg" alt="Adommo Alo Foundation Logo" className="brand-logo-svg" />
-            </a>
+            </Link>
 
             {/* Desktop Navigation Links */}
             <nav>
               <ul className="nav-menu">
                 {navLinks.map((item) => (
                   <li key={item.id}>
-                    <a
-                      href={item.href}
-                      className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-                      onClick={(e) => handleNavClick(e, item.href)}
+                    <Link
+                      to={item.to}
+                      className={`nav-link ${isActive(item.to) ? 'active' : ''}`}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -99,17 +86,14 @@ export default function Navbar({ lang, setLang, t, onOpenDonate }) {
               </div>
 
               {/* Prominent Donate Button */}
-              <a
-                href="#donation"
+              <button
+                type="button"
                 className="btn btn-primary btn-sm btn-donate"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onOpenDonate ? onOpenDonate() : handleNavClick(e, '#donation');
-                }}
+                onClick={() => navigate('/donation')}
               >
                 <Heart size={16} className="donate-pulse-icon" fill="#dc2626" />
                 <span>{t.nav.donateBtn}</span>
-              </a>
+              </button>
 
               {/* Hamburger Button for Mobile */}
               <button
@@ -125,7 +109,7 @@ export default function Navbar({ lang, setLang, t, onOpenDonate }) {
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Overlay */}
       <div
         className={`mobile-drawer-overlay ${mobileOpen ? 'open' : ''}`}
         onClick={() => setMobileOpen(false)}
@@ -170,31 +154,30 @@ export default function Navbar({ lang, setLang, t, onOpenDonate }) {
         <ul className="mobile-nav-links">
           {navLinks.map((item) => (
             <li key={item.id}>
-              <a
-                href={item.href}
-                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, item.href)}
+              <Link
+                to={item.to}
+                className={`nav-link ${isActive(item.to) ? 'active' : ''}`}
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         {/* Mobile Donate CTA */}
         <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid var(--border-light)' }}>
-          <a
-            href="#donation"
+          <button
+            type="button"
             className="btn btn-primary"
             style={{ width: '100%' }}
-            onClick={(e) => {
+            onClick={() => {
               setMobileOpen(false);
-              onOpenDonate ? onOpenDonate() : handleNavClick(e, '#donation');
+              navigate('/donation');
             }}
           >
             <Heart size={18} className="donate-pulse-icon" fill="#dc2626" />
             <span>{t.nav.donateBtn}</span>
-          </a>
+          </button>
         </div>
       </aside>
     </>

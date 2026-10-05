@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUp, Heart, Facebook, Instagram, Youtube, Linkedin, Send } from 'lucide-react';
 
 export default function Footer({ t, onShowToast }) {
@@ -29,16 +30,16 @@ export default function Footer({ t, onShowToast }) {
               {t.footer.aboutText}
             </p>
             <div className="footer-social-row">
-              <a href="#home" className="footer-social-btn" title="Facebook Placeholder" onClick={(e) => e.preventDefault()}>
+              <a href="#" className="footer-social-btn" title="Facebook Placeholder" onClick={(e) => e.preventDefault()}>
                 <Facebook size={18} />
               </a>
-              <a href="#home" className="footer-social-btn" title="Instagram Placeholder" onClick={(e) => e.preventDefault()}>
+              <a href="#" className="footer-social-btn" title="Instagram Placeholder" onClick={(e) => e.preventDefault()}>
                 <Instagram size={18} />
               </a>
-              <a href="#home" className="footer-social-btn" title="YouTube Placeholder" onClick={(e) => e.preventDefault()}>
+              <a href="#" className="footer-social-btn" title="YouTube Placeholder" onClick={(e) => e.preventDefault()}>
                 <Youtube size={18} />
               </a>
-              <a href="#home" className="footer-social-btn" title="LinkedIn Placeholder" onClick={(e) => e.preventDefault()}>
+              <a href="#" className="footer-social-btn" title="LinkedIn Placeholder" onClick={(e) => e.preventDefault()}>
                 <Linkedin size={18} />
               </a>
             </div>
@@ -48,13 +49,13 @@ export default function Footer({ t, onShowToast }) {
           <div>
             <h4 className="footer-col-title">{t.footer.quickLinksTitle}</h4>
             <ul className="footer-links-list">
-              <li><a href="#home">{t.nav.home}</a></li>
-              <li><a href="#about">{t.nav.about}</a></li>
-              <li><a href="#activities">{t.nav.activities}</a></li>
-              <li><a href="#projects">{t.nav.projects}</a></li>
-              <li><a href="#volunteer">{t.nav.volunteer}</a></li>
-              <li><a href="#gallery">{t.nav.gallery}</a></li>
-              <li><a href="#contact">{t.nav.contact}</a></li>
+              <li><Link to="/">{t.nav.home}</Link></li>
+              <li><Link to="/about">{t.nav.about}</Link></li>
+              <li><Link to="/activities">{t.nav.activities}</Link></li>
+              <li><Link to="/projects">{t.nav.projects}</Link></li>
+              <li><Link to="/volunteer">{t.nav.volunteer}</Link></li>
+              <li><Link to="/gallery">{t.nav.gallery}</Link></li>
+              <li><Link to="/contact">{t.nav.contact}</Link></li>
             </ul>
           </div>
 
@@ -62,12 +63,12 @@ export default function Footer({ t, onShowToast }) {
           <div>
             <h4 className="footer-col-title">{t.footer.activitiesTitle}</h4>
             <ul className="footer-links-list">
-              <li><a href="#activities">শিক্ষা ও দক্ষতা উন্নয়ন</a></li>
-              <li><a href="#activities">মানবিক সহায়তা ও ত্রাণ</a></li>
-              <li><a href="#activities">পরিবেশ ও জলবায়ু সচেতনতা</a></li>
-              <li><a href="#activities">কমিউনিটি ডেভেলপমেন্ট</a></li>
-              <li><a href="#activities">নারী ও শিশু কল্যাণ</a></li>
-              <li><a href="#activities">যুব ও স্বেচ্ছাসেবা</a></li>
+              <li><Link to="/activities">শিক্ষা ও দক্ষতা উন্নয়ন</Link></li>
+              <li><Link to="/activities">মানবিক সহায়তা ও ত্রাণ</Link></li>
+              <li><Link to="/activities">পরিবেশ ও জলবায়ু সচেতনতা</Link></li>
+              <li><Link to="/activities">কমিউনিটি ডেভেলপমেন্ট</Link></li>
+              <li><Link to="/activities">নারী ও শিশু কল্যাণ</Link></li>
+              <li><Link to="/activities">যুব ও স্বেচ্ছাসেবা</Link></li>
             </ul>
           </div>
 

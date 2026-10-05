@@ -1,23 +1,18 @@
 import React from 'react';
-import { Heart, ArrowRight, Sparkles, Users, Award, ShieldCheck } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Heart, ArrowRight, Users } from 'lucide-react';
 
 export default function Hero({ t, onOpenDonate }) {
-  const scrollToAbout = (e) => {
+  const navigate = useNavigate();
+
+  const goToAbout = (e) => {
     e.preventDefault();
-    const aboutEl = document.getElementById('about');
-    if (aboutEl) {
-      aboutEl.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate('/about');
   };
 
-  const scrollToDonation = (e) => {
+  const goToDonation = (e) => {
     e.preventDefault();
-    if (onOpenDonate) {
-      onOpenDonate();
-    } else {
-      const el = document.getElementById('donation');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate('/donation');
   };
 
   return (
@@ -26,8 +21,6 @@ export default function Hero({ t, onOpenDonate }) {
         <div className="hero-grid">
           {/* Left Text Content */}
           <div className="hero-content">
-
-
             <h1 className="hero-headline">
               {t.hero.headline}
             </h1>
@@ -40,27 +33,27 @@ export default function Hero({ t, onOpenDonate }) {
               <button
                 type="button"
                 className="btn btn-primary btn-lg"
-                onClick={scrollToDonation}
+                onClick={goToDonation}
               >
                 <Heart size={18} className="donate-pulse-icon" fill="#dc2626" />
                 <span>{t.hero.ctaPrimary}</span>
               </button>
 
-              <a
-                href="#about"
+              <button
+                type="button"
                 className="btn btn-outline btn-lg"
-                onClick={scrollToAbout}
+                onClick={goToAbout}
               >
                 <span>{t.hero.ctaSecondary}</span>
                 <ArrowRight size={18} />
-              </a>
+              </button>
             </div>
 
             {/* Micro badges below CTA */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '32px', flexWrap: 'wrap' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
                 <Users size={18} color="var(--accent-gold-dark)" />
-                <span>তরুণদের সরাসরি মাঠপর্যায়ে অংশগ্রহণ</span>
+                <span>তরুণদের সরাসরি মাঠপর্যায়ে অংশগ্রহণ</span>
               </div>
             </div>
           </div>
