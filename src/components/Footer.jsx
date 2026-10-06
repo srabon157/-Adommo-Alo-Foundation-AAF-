@@ -25,7 +25,7 @@ export default function Footer({ t, onShowToast }) {
         <div className="footer-grid">
           {/* Col 1: Brand Info */}
           <div>
-            <img src="/images/aaf-logo.svg" alt="AAF Logo" className="footer-logo" />
+            <img src="/images/aaf-logo.png" alt="AAF Logo" className="footer-logo" />
             <p className="footer-desc">
               {t.footer.aboutText}
             </p>

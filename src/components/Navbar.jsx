@@ -46,7 +46,7 @@ export default function Navbar({ lang, setLang, t, onOpenDonate }) {
           <div className="navbar-inner">
             {/* Brand Logo */}
             <Link to="/" className="brand-logo-link">
-              <img src="/images/aaf-logo.svg" alt="Adommo Alo Foundation Logo" className="brand-logo-svg" />
+              <img src="/images/aaf-logo.png" alt="Adommo Alo Foundation Logo" className="brand-logo-svg" />
             </Link>
 
             {/* Desktop Navigation Links */}
@@ -116,7 +116,7 @@ export default function Navbar({ lang, setLang, t, onOpenDonate }) {
       />
       <aside className={`mobile-drawer ${mobileOpen ? 'open' : ''}`}>
         <div className="mobile-drawer-header">
-          <img src="/images/aaf-logo.svg" alt="AAF Logo" style={{ height: '42px' }} />
+          <img src="/images/aaf-logo.png" alt="AAF Logo" style={{ height: '44px', width: 'auto' }} />
           <button
             type="button"
             className="modal-close-btn"
