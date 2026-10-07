@@ -455,18 +455,18 @@ export const siteContent = {
           }
         },
         {
-          id: 2,
-          name: "আবু আল সালমান",
-          nameEn: "Abu al Salman",
-          role: "Founding President & Executive Director",
-          roleBn: "প্রতিষ্ঠাতা সভাপতি ও নির্বাহী পরিচালক",
-          bio: "Founder • Programs • Operations • Organizational Coordination",
-          tags: ["Founder", "Programs", "Operations", "Organizational Coordination"],
-          image: "/images/abu-al-salman.jpg",
+          id: 5,
+          name: "মোহাইমিন হোসেন শ্রাবণ",
+          nameEn: "Mohaimin Hossain Srabon",
+          role: "Founding President & Social Media Executive",
+          roleBn: "প্রতিষ্ঠাতা সভাপতি ও সোশ্যাল মিডিয়া নির্বাহী",
+          bio: "Founder • Programs • Operations • Organizational Coordination • Social Media",
+          tags: ["Founder", "Programs", "Operations", "Organizational Coordination", "Social Media"],
+          image: "/images/srabon.jpg",
           social: {
             facebook: "https://facebook.com",
             linkedin: "https://linkedin.com",
-            email: "salman@adommoalo.org"
+            email: "srabon@adommoalo.org"
           }
         },
         {
@@ -485,6 +485,21 @@ export const siteContent = {
           }
         },
         {
+          id: 2,
+          name: "আবু আল সালমান",
+          nameEn: "Abu al Salman",
+          role: "Director of Internal Relations",
+          roleBn: "অভ্যন্তরীণ সম্পর্ক বিষয়ক পরিচালক",
+          bio: "Founder • Management • Internal Relations • Social Media • Digital Communications",
+          tags: ["Founder", "Management", "Internal Relations", "Social Media", "Digital Communications"],
+          image: "/images/abu-al-salman.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "salman@adommoalo.org"
+          }
+        },
+        {
           id: 4,
           name: "অর্ণীক দাস",
           nameEn: "Arnik Das",
@@ -497,21 +512,6 @@ export const siteContent = {
             facebook: "https://facebook.com",
             linkedin: "https://linkedin.com",
             email: "arnik@adommoalo.org"
-          }
-        },
-        {
-          id: 5,
-          name: "মোহাইমিন হোসেন শ্রাবণ",
-          nameEn: "Mohaimin Hossain Srabon",
-          role: "Founding Manager & Social Media Executive",
-          roleBn: "প্রতিষ্ঠাতা ব্যবস্থাপক ও সোশ্যাল মিডিয়া নির্বাহী",
-          bio: "Founder • Management • Social Media • Digital Communications",
-          tags: ["Founder", "Management", "Social Media", "Digital Communications"],
-          image: "/images/srabon.jpg",
-          social: {
-            facebook: "https://facebook.com",
-            linkedin: "https://linkedin.com",
-            email: "srabon@adommoalo.org"
           }
         },
       ],
@@ -1039,16 +1039,16 @@ export const siteContent = {
           }
         },
         {
-          id: 2,
-          name: "Abu al Salman",
-          role: "Founding President & Executive Director",
-          bio: "Founder • Programs • Operations • Organizational Coordination",
-          tags: ["Founder", "Programs", "Operations", "Organizational Coordination"],
-          image: "/images/abu-al-salman.jpg",
+          id: 5,
+          name: "Mohaimin Hossain Srabon",
+          role: "Founding President & Social Media Executive",
+          bio: "Founder • Programs • Operations • Organizational Coordination • Social Media",
+          tags: ["Founder", "Programs", "Operations", "Organizational Coordination", "Social Media"],
+          image: "/images/srabon.jpg",
           social: {
             facebook: "https://facebook.com",
             linkedin: "https://linkedin.com",
-            email: "salman@adommoalo.org"
+            email: "srabon@adommoalo.org"
           }
         },
         {
@@ -1065,6 +1065,19 @@ export const siteContent = {
           }
         },
         {
+          id: 2,
+          name: "Abu al Salman",
+          role: "Director of Internal Relations",
+          bio: "Founder • Management • Internal Relations • Social Media • Digital Communications",
+          tags: ["Founder", "Management", "Internal Relations", "Social Media", "Digital Communications"],
+          image: "/images/abu-al-salman.jpg",
+          social: {
+            facebook: "https://facebook.com",
+            linkedin: "https://linkedin.com",
+            email: "salman@adommoalo.org"
+          }
+        },
+        {
           id: 4,
           name: "Arnik Das",
           role: "Founding Executive Management Officer",
@@ -1075,19 +1088,6 @@ export const siteContent = {
             facebook: "https://facebook.com",
             linkedin: "https://linkedin.com",
             email: "arnik@adommoalo.org"
-          }
-        },
-        {
-          id: 5,
-          name: "Mohaimin Hossain Srabon",
-          role: "Founding Manager & Social Media Executive",
-          bio: "Founder • Management • Social Media • Digital Communications",
-          tags: ["Founder", "Management", "Social Media", "Digital Communications"],
-          image: "/images/srabon.jpg",
-          social: {
-            facebook: "https://facebook.com",
-            linkedin: "https://linkedin.com",
-            email: "srabon@adommoalo.org"
           }
         },
       ],
